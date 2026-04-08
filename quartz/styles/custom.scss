@@ -1,18 +1,24 @@
 @use "./base.scss";
 
 // put your custom CSS here!
-/* 魔法学院自定义风格 */
+/* 魔法学院优化版：提高对比度 */
 :root[item-theme="dark"] {
-    --light: #1a1a1a;          /* 背景颜色 */
-    --lightgray: #4a0000;      /* 边框颜色 */
-    --gray: #8b0000;           /* 辅助文字颜色 */
-    --darkgray: #e0e0e0;       /* 正文颜色 */
-    --dark: #ff4d4d;           /* 标题颜色 */
-    --secondary: #a00000;      /* 链接颜色 */
+    --light: #1a0a0a;          /* 极深棕红背景，更接近黑，方便衬托文字 */
+    --lightgray: #5d1a1a;      /* 稍微亮一点的边框 */
+    --gray: #b39999;           /* 辅助文字改成淡咖色，清晰不刺眼 */
+    --darkgray: #ffffff;       /* 正文直接用纯白或亮灰，保证阅读 */
+    --dark: #ff6e6e;           /* 标题用亮红色 */
+    --secondary: #ff9e9e;      /* 链接用粉红，更容易被看见 */
 }
 
 body {
-    /* 加上你喜欢的深红渐变背景 */
-    background: linear-gradient(to right, #2b0000, #4a0000) !important;
+    /* 调整渐变：中心稍亮，四周深暗，增加“高级感” */
+    background: radial-gradient(circle, #4a0000 0%, #1a0505 100%) !important;
     background-attachment: fixed;
+    color: #f5f5f5 !important; /* 全局强制浅色文字 */
+}
+
+/* 专门针对 Quartz 的一些暗部文字做加亮 */
+.p-summary, .box {
+    color: #e0e0e0 !important;
 }
