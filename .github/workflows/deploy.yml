@@ -2,6 +2,7 @@ name: Deploy Quartz
 on:
   push:
     branches:
+      - v4
       - main
 
 permissions:
