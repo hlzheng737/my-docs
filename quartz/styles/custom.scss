@@ -1,3 +1,18 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+/* 魔法学院自定义风格 */
+:root[item-theme="dark"] {
+    --light: #1a1a1a;          /* 背景颜色 */
+    --lightgray: #4a0000;      /* 边框颜色 */
+    --gray: #8b0000;           /* 辅助文字颜色 */
+    --darkgray: #e0e0e0;       /* 正文颜色 */
+    --dark: #ff4d4d;           /* 标题颜色 */
+    --secondary: #a00000;      /* 链接颜色 */
+}
+
+body {
+    /* 加上你喜欢的深红渐变背景 */
+    background: linear-gradient(to right, #2b0000, #4a0000) !important;
+    background-attachment: fixed;
+}
