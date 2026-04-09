@@ -1,5 +1,7 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
+// 直接从 emitter 路径手动导入，解决 Plugin.Search 报 undefined 的问题
+import { NativeSearch } from "./quartz/plugins/emitters/search"
 
 /**
  * Quartz 4 Configuration
@@ -8,15 +10,15 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Quartz 4",
+    pageTitle: "Magic Wiki", // 这里的标题会显示在左上角
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
       provider: "plausible",
     },
-    locale: "zh-CN",
-    baseUrl: "quartz.jzhao.xyz",
+    locale: "zh-CN", // 设置为中文界面
+    baseUrl: "hlzheng737.github.io/my-docs", // 你的 GitHub Pages 地址
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
     theme: {
@@ -88,10 +90,10 @@ const config: QuartzConfig = {
       Plugin.Static(),
       Plugin.Favicon(),
       Plugin.NotFoundPage(),
-      // 修正后的搜索插件配置
-      Plugin.NativeSearch({
+      // 启用中文搜索优化
+      NativeSearch({
         enableIndexing: true,
-        standard: "cjk", // 继续保留中文分词配置
+        standard: "cjk",
       }),
       Plugin.CustomOgImages(),
     ],
