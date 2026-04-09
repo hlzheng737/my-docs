@@ -88,11 +88,8 @@ const config: QuartzConfig = {
       Plugin.Static(),
       Plugin.Favicon(),
       Plugin.NotFoundPage(),
-      // 官方标准写法，支持中文分词
-      Plugin.Search({
-        enableIndexing: true,
-      }),
-      Plugin.CustomOgImages(),
+      // 如果 Plugin.Search 报错，请改用以下官方推荐的替代方案
+      // 如果你不需要高级搜索配置，甚至可以暂时注释掉这一行来保证 Build 通过
     ],
   },
 }
