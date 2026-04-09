@@ -75,22 +75,14 @@ const config: QuartzConfig = {
     ],
     filters: [Plugin.RemoveDrafts()],
     emitters: [
-      Plugin.AliasRedirects(),
-      Plugin.ComponentResources(),
-      Plugin.ContentPage(),
-      Plugin.FolderPage(),
-      Plugin.TagPage(),
-      Plugin.ContentIndex({
-        enableSiteMap: true,
-        enableRSS: true,
-      }),
-      Plugin.Assets(),
-      Plugin.Static(),
-      Plugin.Favicon(),
-      Plugin.NotFoundPage(),
-      // Comment out CustomOgImages to speed up build time
-      Plugin.CustomOgImages(),
-    ],
+  Plugin.AliasRedirects(),
+  Plugin.Search({
+    enableIndexing: true,
+    standard: "cjk", // 核心配置：开启中日韩文分词支持
+  }),
+  Plugin.ComponentResources(),
+  // ... 其他插件
+],
   },
 }
 
