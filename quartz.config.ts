@@ -75,14 +75,26 @@ const config: QuartzConfig = {
     ],
     filters: [Plugin.RemoveDrafts()],
     emitters: [
-  Plugin.AliasRedirects(),
-  Plugin.Search({
-    enableIndexing: true,
-    standard: "cjk", // 核心配置：开启中日韩文分词支持
-  }),
-  Plugin.ComponentResources(),
-  // ... 其他插件
-],
+      Plugin.AliasRedirects(),
+      Plugin.ComponentResources(),
+      Plugin.ContentPage(),
+      Plugin.FolderPage(),
+      Plugin.TagPage(),
+      Plugin.ContentIndex({
+        enableSiteMap: true,
+        enableRSS: true,
+      }),
+      Plugin.Assets(),
+      Plugin.Static(),
+      Plugin.Favicon(),
+      Plugin.NotFoundPage(),
+      // 修正后的搜索插件配置
+      Plugin.NativeSearch({
+        enableIndexing: true,
+        standard: "cjk", // 继续保留中文分词配置
+      }),
+      Plugin.CustomOgImages(),
+    ],
   },
 }
 
